@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/vmnova.Application/vmnova.Application.csproj" />
+    <Project Path="src/vmnova.Domain/vmnova.Domain.csproj" />
+    <Project Path="src/vmnova.Infrastructure/vmnova.Infrastructure.csproj" />
+    <Project Path="src/vmnova.Web/vmnova.Web.csproj" />
+  </Folder>
+</Solution>
