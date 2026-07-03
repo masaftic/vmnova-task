@@ -9,6 +9,8 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
 {
     public void Configure(EntityTypeBuilder<User> builder)
     {
+        builder.Property(u => u.Email).HasMaxLength(200);
+
         builder.HasMany(u => u.Roles)
             .WithMany()
             .UsingEntity<UserRole>(

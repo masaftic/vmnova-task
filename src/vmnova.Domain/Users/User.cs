@@ -4,19 +4,21 @@ public class User
 {
     public int Id { get; init; }
     public string Name { get; private set; } = null!;
+    public string Email { get; private set; } = null!;
 
     private readonly List<Role> _roles = [];
     public IReadOnlyList<Role> Roles => _roles.AsReadOnly();
 
     private User() { }
 
-    public static User Create(string name)
+    public static User Create(string name, string email)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(name);
 
         return new User
         {
-            Name = name
+            Name = name,
+            Email = email
         };
     }
 
