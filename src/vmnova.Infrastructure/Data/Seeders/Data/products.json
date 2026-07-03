@@ -1,0 +1,162 @@
+[
+  {
+    "id": "PRD-001",
+    "name": "Wireless Mouse",
+    "description": "Ergonomic 2.4GHz wireless mouse with silent click.",
+    "categoryId": "CAT-01",
+    "size": "Standard",
+    "wholesalePrice": 6.5,
+    "salePrice": 14.99,
+    "iconSvg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round'><rect x='6' y='6' width='12' height='12' rx='2'/><path d='M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3'/></svg>"
+  },
+  {
+    "id": "PRD-002",
+    "name": "USB-C Hub",
+    "description": "7-in-1 USB-C hub with HDMI, SD and 3x USB-A.",
+    "categoryId": "CAT-01",
+    "size": "Compact",
+    "wholesalePrice": 11.2,
+    "salePrice": 29.99,
+    "iconSvg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round'><rect x='6' y='6' width='12' height='12' rx='2'/><path d='M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3'/></svg>"
+  },
+  {
+    "id": "PRD-003",
+    "name": "Bluetooth Speaker",
+    "description": "Portable speaker, 12h battery, IPX7 waterproof.",
+    "categoryId": "CAT-01",
+    "size": "Medium",
+    "wholesalePrice": 18.75,
+    "salePrice": 39.9,
+    "iconSvg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round'><rect x='6' y='6' width='12' height='12' rx='2'/><path d='M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3'/></svg>"
+  },
+  {
+    "id": "PRD-004",
+    "name": "Mechanical Keyboard",
+    "description": "87-key hot-swappable keyboard, brown switches.",
+    "categoryId": "CAT-01",
+    "size": "TKL",
+    "wholesalePrice": 28.4,
+    "salePrice": 64.0,
+    "iconSvg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round'><rect x='6' y='6' width='12' height='12' rx='2'/><path d='M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3'/></svg>"
+  },
+  {
+    "id": "PRD-005",
+    "name": "Ceramic Mug",
+    "description": "350ml glazed ceramic mug, microwave safe.",
+    "categoryId": "CAT-02",
+    "size": "350 ml",
+    "wholesalePrice": 1.8,
+    "salePrice": 6.5,
+    "iconSvg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M4 8h12v7a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z'/><path d='M16 9h2a2 2 0 0 1 0 6h-2'/><path d='M6 3v2M10 3v2M14 3v2'/></svg>"
+  },
+  {
+    "id": "PRD-006",
+    "name": "Chef's Knife",
+    "description": "20cm stainless steel chef's knife, full tang.",
+    "categoryId": "CAT-02",
+    "size": "20 cm",
+    "wholesalePrice": 7.9,
+    "salePrice": 22.0,
+    "iconSvg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M4 8h12v7a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z'/><path d='M16 9h2a2 2 0 0 1 0 6h-2'/><path d='M6 3v2M10 3v2M14 3v2'/></svg>"
+  },
+  {
+    "id": "PRD-007",
+    "name": "Glass Kettle",
+    "description": "1.7L borosilicate glass kettle with LED base.",
+    "categoryId": "CAT-02",
+    "size": "1.7 L",
+    "wholesalePrice": 13.3,
+    "salePrice": 34.99,
+    "iconSvg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M4 8h12v7a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z'/><path d='M16 9h2a2 2 0 0 1 0 6h-2'/><path d='M6 3v2M10 3v2M14 3v2'/></svg>"
+  },
+  {
+    "id": "PRD-008",
+    "name": "Bamboo Cutting Board",
+    "description": "Reversible bamboo cutting board with groove.",
+    "categoryId": "CAT-02",
+    "size": "Large",
+    "wholesalePrice": 4.6,
+    "salePrice": 15.0,
+    "iconSvg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M4 8h12v7a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z'/><path d='M16 9h2a2 2 0 0 1 0 6h-2'/><path d='M6 3v2M10 3v2M14 3v2'/></svg>"
+  },
+  {
+    "id": "PRD-009",
+    "name": "Cotton T-Shirt",
+    "description": "180gsm combed cotton crew-neck t-shirt.",
+    "categoryId": "CAT-03",
+    "size": "M",
+    "wholesalePrice": 3.2,
+    "salePrice": 11.99,
+    "iconSvg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M9 3l3 2 3-2 6 3-2 4-3-1v11H8V9L5 10 3 6z'/></svg>"
+  },
+  {
+    "id": "PRD-010",
+    "name": "Denim Jacket",
+    "description": "Classic mid-wash denim jacket, button front.",
+    "categoryId": "CAT-03",
+    "size": "L",
+    "wholesalePrice": 16.5,
+    "salePrice": 45.0,
+    "iconSvg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M9 3l3 2 3-2 6 3-2 4-3-1v11H8V9L5 10 3 6z'/></svg>"
+  },
+  {
+    "id": "PRD-011",
+    "name": "Wool Socks",
+    "description": "Merino wool crew socks, cushioned sole (3 pack).",
+    "categoryId": "CAT-03",
+    "size": "41-45",
+    "wholesalePrice": 4.1,
+    "salePrice": 13.5,
+    "iconSvg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M9 3l3 2 3-2 6 3-2 4-3-1v11H8V9L5 10 3 6z'/></svg>"
+  },
+  {
+    "id": "PRD-012",
+    "name": "Baseball Cap",
+    "description": "6-panel adjustable cotton cap, curved brim.",
+    "categoryId": "CAT-03",
+    "size": "One Size",
+    "wholesalePrice": 2.7,
+    "salePrice": 9.9,
+    "iconSvg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M9 3l3 2 3-2 6 3-2 4-3-1v11H8V9L5 10 3 6z'/></svg>"
+  },
+  {
+    "id": "PRD-013",
+    "name": "A5 Notebook",
+    "description": "160-page dotted A5 notebook, hardcover.",
+    "categoryId": "CAT-04",
+    "size": "A5",
+    "wholesalePrice": 1.9,
+    "salePrice": 7.5,
+    "iconSvg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M6 2h8l4 4v16H6z'/><path d='M14 2v4h4'/><path d='M9 12h6M9 16h6'/></svg>"
+  },
+  {
+    "id": "PRD-014",
+    "name": "Gel Pen Pack",
+    "description": "0.5mm black gel pens, quick-dry ink (pack of 10).",
+    "categoryId": "CAT-04",
+    "size": "Pack of 10",
+    "wholesalePrice": 2.3,
+    "salePrice": 8.0,
+    "iconSvg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M6 2h8l4 4v16H6z'/><path d='M14 2v4h4'/><path d='M9 12h6M9 16h6'/></svg>"
+  },
+  {
+    "id": "PRD-015",
+    "name": "Desk Organizer",
+    "description": "5-compartment mesh metal desk organizer.",
+    "categoryId": "CAT-04",
+    "size": "Standard",
+    "wholesalePrice": 5.8,
+    "salePrice": 18.0,
+    "iconSvg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M6 2h8l4 4v16H6z'/><path d='M14 2v4h4'/><path d='M9 12h6M9 16h6'/></svg>"
+  },
+  {
+    "id": "PRD-016",
+    "name": "Sticky Notes",
+    "description": "76x76mm sticky notes, 5 colors (500 sheets).",
+    "categoryId": "CAT-04",
+    "size": "76x76 mm",
+    "wholesalePrice": 1.4,
+    "salePrice": 5.5,
+    "iconSvg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M6 2h8l4 4v16H6z'/><path d='M14 2v4h4'/><path d='M9 12h6M9 16h6'/></svg>"
+  }
+]

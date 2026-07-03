@@ -7,7 +7,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="10.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.9" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="../vmnova.Application/vmnova.Application.csproj" />
   </ItemGroup>
+
+
+  <ItemGroup>
+    <Content Include="Data\Seeders\Data\*.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+
 
 </Project>
