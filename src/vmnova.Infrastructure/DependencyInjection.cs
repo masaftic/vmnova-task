@@ -60,11 +60,11 @@ public static class DependencyInjection
             var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
             await dbContext.Database.MigrateAsync();
 
-            var productSeeder = scope.ServiceProvider.GetRequiredService<ProductSeeder>();
-            await productSeeder.SeedProductsAsync();
-
             var categorySeeder = scope.ServiceProvider.GetRequiredService<CategorySeeder>();
             await categorySeeder.SeedCategoriesAsync();
+
+            var productSeeder = scope.ServiceProvider.GetRequiredService<ProductSeeder>();
+            await productSeeder.SeedProductsAsync();
         }
     }
 }

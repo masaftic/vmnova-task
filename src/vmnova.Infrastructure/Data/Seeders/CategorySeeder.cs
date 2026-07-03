@@ -22,7 +22,8 @@ public class CategorySeeder(AppDbContext dbContext)
 
         var categories = JsonSerializer.Deserialize<List<CategoryDto>>(data, options) ?? throw new InvalidOperationException("Seed data not found");
 
-        await dbContext.AddRangeAsync(categories.Select(p => p.ToCategory()));
+        dbContext.AddRange(categories.Select(p => p.ToCategory()));
+        await  dbContext.SaveChangesAsync();
     }
 
     public class CategoryDto

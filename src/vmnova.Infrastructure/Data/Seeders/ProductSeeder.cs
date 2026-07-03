@@ -22,7 +22,8 @@ public class ProductSeeder(AppDbContext dbContext)
 
         var products = JsonSerializer.Deserialize<List<ProductDto>>(data, options) ?? throw new InvalidOperationException("Seed data not found");
 
-        await dbContext.AddRangeAsync(products.Select(p => p.ToProduct()));
+        dbContext.AddRange(products.Select(p => p.ToProduct()));
+        await dbContext.SaveChangesAsync();
     }
 
     public class ProductDto
