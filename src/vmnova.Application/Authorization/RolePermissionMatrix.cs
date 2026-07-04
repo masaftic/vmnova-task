@@ -4,7 +4,7 @@ namespace vmnova.Application.Authorization;
 
 public static class RolePermissionMatrix
 {
-    public static readonly Dictionary<string, List<string>> Matrix = new()
+    public static readonly Dictionary<string, string[]> Matrix = new()
     {
         [DefaultRoles.Admin] = [
             ..DefaultPermissions.GetAllCategoryPermissions(),

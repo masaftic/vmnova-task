@@ -1,23 +1,32 @@
 using Microsoft.EntityFrameworkCore;
+using vmnova.Application.Abstractions;
 using vmnova.Application.Authorization;
-using vmnova.Domain.Categories;
 using vmnova.Domain.Constants;
-using vmnova.Domain.Products;
 using vmnova.Domain.Users;
-using static vmnova.Domain.Constants.DefaultPermissions;
 
 namespace vmnova.Infrastructure.Data.Seeders;
 
-public class RoleSeeder(AppDbContext dbContext)
+public class RoleSeeder(AppDbContext dbContext, IPermissionService permissionService)
 {
     public async Task SeedRolesAsync()
     {
         if (await dbContext.DomainRoles.AnyAsync())
             return;
 
-        var adminRole = DefaultRoleFactory.CreateRole(DefaultRoles.Admin);
-        var salesRole = DefaultRoleFactory.CreateRole(DefaultRoles.Sales);
-        var inventoryManagerRole = DefaultRoleFactory.CreateRole(DefaultRoles.InventoryManager);
+        var adminRole = Role.Create(DefaultRoles.Admin);
+        var adminPermissionsNames = RolePermissionMatrix.Matrix[DefaultRoles.Admin];
+        adminRole.AddPermissions(
+            await permissionService.GetPermissionsByNames(adminPermissionsNames));
+
+        var salesRole = Role.Create(DefaultRoles.Sales);
+        var salesPermissionsNames = RolePermissionMatrix.Matrix[DefaultRoles.Sales];
+        salesRole.AddPermissions(
+            await permissionService.GetPermissionsByNames(salesPermissionsNames));
+
+        var inventoryManagerRole = Role.Create(DefaultRoles.InventoryManager);
+        var inventoryManagerPermissionsNames = RolePermissionMatrix.Matrix[DefaultRoles.InventoryManager];
+        inventoryManagerRole.AddPermissions(
+            await permissionService.GetPermissionsByNames(inventoryManagerPermissionsNames));
 
         List<Role> roles = [
             adminRole,

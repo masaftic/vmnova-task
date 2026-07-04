@@ -24,4 +24,11 @@ public class PermissionService : IPermissionService
             .Distinct()
             .ToListAsync();
     }
+
+    public async Task<IReadOnlyList<Permission>> GetPermissionsByNames(string[] names)
+    {
+        return await _dbContext.DomainPermissions
+            .Where(p => names.Contains(p.Name))
+            .ToListAsync();
+    }
 }

@@ -25,6 +25,9 @@ public class RoleConfiguration : IEntityTypeConfiguration<Role>
 {
     public void Configure(EntityTypeBuilder<Role> builder)
     {
+        builder.HasIndex(r => r.Name)
+            .IsUnique();
+
         builder.HasMany(r => r.Permissions)
             .WithMany()
             .UsingEntity<RolePermission>(
@@ -39,6 +42,9 @@ public class PermissionConfiguration : IEntityTypeConfiguration<Permission>
 {
     public void Configure(EntityTypeBuilder<Permission> builder)
     {
+        builder.HasIndex(p => p.Name)
+            .IsUnique();
+
         builder
             .HasDiscriminator<string>("Type")
             .HasValue<Permission>("Perm")

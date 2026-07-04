@@ -24,6 +24,7 @@ public static class DependencyInjection
             services.AddScoped<ProductSeeder>();
             services.AddScoped<CategorySeeder>();
             services.AddScoped<RoleSeeder>();
+            services.AddScoped<PermissionSeeder>();
 
             services
                 .AddIdentityCore<ApplicationUser>(options =>
@@ -46,6 +47,7 @@ public static class DependencyInjection
             services.AddScoped<IIdentityService, IdentityService>();
             services.AddScoped<ICurrentUserService, CurrentUserService>();
             services.AddScoped<IPermissionService, PermissionService>();
+            services.AddScoped<IRoleService, RoleService>();
 
             services.AddAuthentication(defaultScheme: IdentityConstants.ApplicationScheme)
                 .AddIdentityCookies();
@@ -54,7 +56,7 @@ public static class DependencyInjection
 
             return services;
         }
-    }
+}
 
     extension(IServiceProvider services)
     {
@@ -70,6 +72,9 @@ public static class DependencyInjection
 
             var productSeeder = scope.ServiceProvider.GetRequiredService<ProductSeeder>();
             await productSeeder.SeedProductsAsync();
+
+            var permissionSeeder = scope.ServiceProvider.GetRequiredService<PermissionSeeder>();
+            await permissionSeeder.SeedPermissionsAsync();
 
             var roleSeeder = scope.ServiceProvider.GetRequiredService<RoleSeeder>();
             await roleSeeder.SeedRolesAsync();
