@@ -58,14 +58,11 @@ public static class DefaultRoleFactory
 
     private static IReadOnlyList<ColumnPermission> GenerateProductColumnPermission()
     {
-        List<ColumnPermission> permissions = [
-            new ColumnPermission(nameof(Product), nameof(Product.Name), ProductColumnPermissions.ViewProductNameColumn),
+        IReadOnlyList<ColumnPermission> permissions = [
             new ColumnPermission(nameof(Product), nameof(Product.Description), ProductColumnPermissions.ViewProductDescriptionColumn),
-            new ColumnPermission(nameof(Product), nameof(Product.CategoryId), ProductColumnPermissions.ViewProductCategoryIdColumn),
             new ColumnPermission(nameof(Product), nameof(Product.Size), ProductColumnPermissions.ViewProductSizeColumn),
             new ColumnPermission(nameof(Product), nameof(Product.WholesalePrice), ProductColumnPermissions.ViewProductWholesalePriceColumn),
             new ColumnPermission(nameof(Product), nameof(Product.SalePrice), ProductColumnPermissions.ViewProductSalePriceColumn),
-            new ColumnPermission(nameof(Product), nameof(Product.IconSvg), ProductColumnPermissions.ViewProductIconSvgColumn),
         ];
 
         return permissions;
@@ -73,7 +70,7 @@ public static class DefaultRoleFactory
 
     private static IReadOnlyList<FilterPermission> GenerateCategoryFilterPermission()
     {
-        List<FilterPermission> permissions = [
+        IReadOnlyList<FilterPermission> permissions = [
             new FilterPermission(nameof(Category), "CAT-01", CategoryFilterPermissions.ViewCategoryElectronics), // TODO: figure out a better what to handle these hardcoded ids
             new FilterPermission(nameof(Category), "CAT-02", CategoryFilterPermissions.ViewCategoryHomeAndKitchen),
             new FilterPermission(nameof(Category), "CAT-03", CategoryFilterPermissions.ViewCategoryApparel),

@@ -2,27 +2,39 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using vmnova.Application.Abstractions;
 using vmnova.Domain.Categories;
+using vmnova.Domain.Products;
 using vmnova.Domain.Shared;
 using vmnova.Domain.Users;
 
 namespace vmnova.Application.Features.Products.GetAll;
 
-public record GetAllProductsQuery : IRequest<List<ProductDto>>;
+public record GetAllProductsQuery : IRequest<ProductQueryResult>;
 
-// TODO: we need a way to distinguish null properties from permission gated columns so the ui can display properly
+public record ProductQueryResult(
+    List<ProductColumn> VisibleColumns,
+    List<ProductDto> Products);
+
 public record ProductDto(
     string Id,
     string Name,
-    string Description,
+    string? Description,
     string CategoryId,
     string CategoryName,
-    string Size,
-    decimal WholesalePrice,
-    decimal SalePrice,
+    string? Size,
+    decimal? WholesalePrice,
+    decimal? SalePrice,
     string IconSvg);
 
+public enum ProductColumn
+{
+    Description,
+    Size,
+    WholesalePrice,
+    SalePrice
+}
 
-public class GetAllProductsQueryHandler : IRequestHandler<GetAllProductsQuery, List<ProductDto>>
+
+public class GetAllProductsQueryHandler : IRequestHandler<GetAllProductsQuery, ProductQueryResult>
 {
     private readonly IPermissionService _permissionService;
     private readonly IAppDbContext _dbContext;
@@ -35,7 +47,7 @@ public class GetAllProductsQueryHandler : IRequestHandler<GetAllProductsQuery, L
         _currentUser = currentUser;
     }
 
-    public async Task<List<ProductDto>> Handle(GetAllProductsQuery request, CancellationToken cancellationToken)
+    public async Task<ProductQueryResult> Handle(GetAllProductsQuery request, CancellationToken cancellationToken)
     {
         var permissions = await _permissionService.GetUserPermissions(_currentUser.UserId);
 
@@ -49,22 +61,35 @@ public class GetAllProductsQueryHandler : IRequestHandler<GetAllProductsQuery, L
 
         query = query.Where(c => categoryIds.Contains(c.CategoryId));
 
-        // TODO: project product columns
+
+        var productColumns = permissions.OfType<ColumnPermission>()
+            .Where(p => p.EntityName == nameof(Product))
+            .ToList();
+
+        var canSeeDescription = productColumns.Any(p => p.ColumnName == nameof(Product.Description));
+        var canSeeSize = productColumns.Any(p => p.ColumnName == nameof(Product.Size));
+        var canSeeWholesalePrice = productColumns.Any(p => p.ColumnName == nameof(Product.WholesalePrice));
+        var canSeeSalePrice = productColumns.Any(p => p.ColumnName == nameof(Product.SalePrice));
 
         var result = await query
             .Select(p => new ProductDto(
                 p.Id,
                 p.Name,
-                p.Description,
+                canSeeDescription ? p.Description : null,
                 p.CategoryId,
                 p.Category.Name,
-                p.Size,
-                p.WholesalePrice,
-                p.SalePrice,
+                canSeeSize ? p.Size : null,
+                canSeeWholesalePrice ? p.WholesalePrice : null,
+                canSeeSalePrice ? p.SalePrice : null,
                 p.IconSvg
             ))
             .ToListAsync(cancellationToken);
 
-        return result;
+        var visibleColumns = productColumns.Select(p => Enum.Parse<ProductColumn>(p.ColumnName)).ToList();
+
+        return new ProductQueryResult(
+            visibleColumns,
+            result
+        );
     }
 }

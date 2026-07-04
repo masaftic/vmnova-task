@@ -8,10 +8,10 @@ namespace vmnova.Web.Pages;
 [Authorize]
 public class IndexModel(ISender sender) : PageModel
 {
-    public List<ProductDto> Products { get; private set; } = [];
+    public ProductQueryResult ProductResult { get; private set; } = null!;
 
     public async Task OnGetAsync()
     {
-        Products = await sender.Send(new GetAllProductsQuery());
+        ProductResult = await sender.Send(new GetAllProductsQuery());
     }
 }

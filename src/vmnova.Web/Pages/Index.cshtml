@@ -1,37 +1,72 @@
 ﻿@page
+@using vmnova.Application.Features.Products.GetAll;
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
+<div class="">
     <table class="table table-striped">
         <thead>
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Id</th>
                 <th scope="col">Name</th>
-                <th scope="col">Description</th>
-                <th scope="col">CategoryName</th>
-                <th scope="col">WholesalePrice</th>
-                <th scope="col">SalePrice</th>
+                @if (CanSee(ProductColumn.Description))
+                {
+                    <th scope="col">Description</th>
+                }
+                <th scope="col">Category Name</th>
+                @if (CanSee(ProductColumn.Size))
+                {
+                    <th scope="col">Size</th>
+                }
+                @if (CanSee(ProductColumn.WholesalePrice))
+                {
+                    <th scope="col">Wholesale Price</th>
+                }
+                @if (CanSee(ProductColumn.SalePrice))
+                {
+                    <th scope="col">Sale Price</th>
+                }
                 <th scope="col">Icon</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var (index, product) in Model.Products.Select((item, index) => (index, item)))
+            @foreach (var (index, product) in Model.ProductResult.Products.Select((item, index) => (index, item)))
             {
                 <tr>
-                    <th scope="row">@index</th>
+                    <th scope="row">@(index + 1)</th>
                     <td>@product.Id</td>
                     <td>@product.Name</td>
-                    <td>@product.Description</td>
+                    @if (CanSee(ProductColumn.Description))
+                    {
+                        <td>@product.Description</td>
+                    }
                     <td>@product.CategoryName</td>
-                    <td>@product.WholesalePrice</td>
-                    <td>@product.SalePrice</td>
-                    <td><img src="@product.IconSvg" /></td>
+                    @if (CanSee(ProductColumn.Size))
+                    {
+                        <td>@product.Size</td>
+                    }
+                    @if (CanSee(ProductColumn.WholesalePrice))
+                    {
+                        <td>@product.WholesalePrice</td>
+                    }
+                    @if (CanSee(ProductColumn.SalePrice))
+                    {
+                        <td>@product.SalePrice</td>
+                    }
+                    <td class="text-center" style="width: 20px">@Html.Raw($"{product.IconSvg}")</td>
                 </tr>
             }
         </tbody>
     </table>
 </div>
+
+
+@{
+    bool CanSee(ProductColumn column)
+    {
+        return (Model.ProductResult.VisibleColumns.Contains(column));
+    }
+}

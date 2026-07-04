@@ -9,25 +9,21 @@ public static class DefaultPermissions
 {
     public class ProductColumnPermissions
     {
-        public const string ViewProductNameColumn = $"Products.ViewColumn.{nameof(Product.Name)}"; 
         public const string ViewProductDescriptionColumn = $"Products.ViewColumn.{nameof(Product.Description)}";
         public const string ViewProductSizeColumn = $"Products.ViewColumn.{nameof(Product.Size)}";
-        public const string ViewProductCategoryIdColumn = $"Products.ViewColumn.{nameof(Product.CategoryId)}";
         public const string ViewProductWholesalePriceColumn = $"Products.ViewColumn.{nameof(Product.WholesalePrice)}";
         public const string ViewProductSalePriceColumn = $"Products.ViewColumn.{nameof(Product.SalePrice)}";
-        public const string ViewProductIconSvgColumn = $"Products.ViewColumn.{nameof(Product.IconSvg)}";
     }
+
+    // Permission-gated columns: Description, Size, Wholesale Price, Sale Price
 
     public static List<string> GetAllProductPermissions()
     {
         List<string> permissions = [
-            ProductColumnPermissions.ViewProductNameColumn,
             ProductColumnPermissions.ViewProductDescriptionColumn,
             ProductColumnPermissions.ViewProductSizeColumn,
-            ProductColumnPermissions.ViewProductCategoryIdColumn,
             ProductColumnPermissions.ViewProductWholesalePriceColumn,
             ProductColumnPermissions.ViewProductSalePriceColumn,
-            ProductColumnPermissions.ViewProductIconSvgColumn
         ];
 
         return permissions;

@@ -15,23 +15,17 @@ public static class RolePermissionMatrix
             DefaultPermissions.CategoryFilterPermissions.ViewCategoryHomeAndKitchen,
             DefaultPermissions.CategoryFilterPermissions.ViewCategoryOfficeSupplies,
 
-            DefaultPermissions.ProductColumnPermissions.ViewProductNameColumn,
-            DefaultPermissions.ProductColumnPermissions.ViewProductCategoryIdColumn,
             DefaultPermissions.ProductColumnPermissions.ViewProductSizeColumn,
             DefaultPermissions.ProductColumnPermissions.ViewProductWholesalePriceColumn,
-            DefaultPermissions.ProductColumnPermissions.ViewProductIconSvgColumn
         ],
 
         [DefaultRoles.Sales] = [
             DefaultPermissions.CategoryFilterPermissions.ViewCategoryElectronics,
             DefaultPermissions.CategoryFilterPermissions.ViewCategoryApparel,
 
-            DefaultPermissions.ProductColumnPermissions.ViewProductNameColumn,
             DefaultPermissions.ProductColumnPermissions.ViewProductDescriptionColumn,
-            DefaultPermissions.ProductColumnPermissions.ViewProductCategoryIdColumn,
             DefaultPermissions.ProductColumnPermissions.ViewProductSizeColumn,
             DefaultPermissions.ProductColumnPermissions.ViewProductSalePriceColumn,
-            DefaultPermissions.ProductColumnPermissions.ViewProductIconSvgColumn
         ]
     };
 }
