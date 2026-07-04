@@ -27,4 +27,10 @@ public class Role
 
         _permissions.Add(permission);
     }
+
+    public void AddPermissions(IEnumerable<Permission> permissions)
+    {
+        foreach (var permission in permissions)
+            AddPermission(permission);
+    }
 }

@@ -5,6 +5,33 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">CategoryName</th>
+                <th scope="col">WholesalePrice</th>
+                <th scope="col">SalePrice</th>
+                <th scope="col">Icon</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var (index, product) in Model.Products.Select((item, index) => (index, item)))
+            {
+                <tr>
+                    <th scope="row">@index</th>
+                    <td>@product.Id</td>
+                    <td>@product.Name</td>
+                    <td>@product.Description</td>
+                    <td>@product.CategoryName</td>
+                    <td>@product.WholesalePrice</td>
+                    <td>@product.SalePrice</td>
+                    <td><img src="@product.IconSvg" /></td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>

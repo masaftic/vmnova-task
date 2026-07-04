@@ -18,12 +18,14 @@ public class Permission
 public class FilterPermission : Permission
 {
     public string EntityName { get; set; } = null!;
+    public string EntityId { get; set; } = null!;
 
     private FilterPermission() { }
 
-    public FilterPermission(string entityName, string name) : base(name)
+    public FilterPermission(string entityName, string entityId, string name) : base(name)
     {
         EntityName = entityName;
+        EntityId = entityId;
     }
 }
 

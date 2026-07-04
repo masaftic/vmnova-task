@@ -1,5 +1,6 @@
 using MediatR;
 using vmnova.Application.Abstractions;
+using vmnova.Application.Authorization;
 using vmnova.Domain.Shared;
 using vmnova.Domain.Users;
 
@@ -15,7 +16,8 @@ public class RegisterCommandHandler(IIdentityService identityService, IAppDbCont
         using var trx = await dbContext.BeginTransactionAsync(cancellationToken);
 
         var user = User.Create(request.Name, request.Email); 
-        user.AddRole(Role.Create(request.Role.ToString()));
+
+        user.AddRole(DefaultRoleFactory.CreateRole(request.Role.ToString()));
 
         dbContext.DomainUsers.Add(user); // save to get the user id because identity requires it
         await dbContext.SaveChangesAsync(cancellationToken);

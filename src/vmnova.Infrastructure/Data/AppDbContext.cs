@@ -13,8 +13,10 @@ namespace vmnova.Infrastructure.Data;
 public class AppDbContext(DbContextOptions<AppDbContext> options) : IdentityDbContext<ApplicationUser, ApplicationRole, int>(options), IAppDbContext
 {
     public DbSet<User> DomainUsers { get; set; }
+    public DbSet<UserRole> DomainUserRoles { get; set; }
     public DbSet<Role> DomainRoles { get; set; }
     public DbSet<Permission> DomainPermissions { get; set; }
+    public DbSet<RolePermission> DomainRolePermissions { get; set; }
 
     public DbSet<Product> Products { get; set; }
     public DbSet<Category> Categories { get; set; }

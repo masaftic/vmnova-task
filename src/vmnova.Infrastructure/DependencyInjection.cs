@@ -6,6 +6,7 @@ using vmnova.Infrastructure.Data;
 using vmnova.Infrastructure.Data.Seeders;
 using Microsoft.AspNetCore.Identity;
 using vmnova.Infrastructure.Identity;
+using vmnova.Infrastructure.Services;
 
 namespace vmnova.Infrastructure;
 
@@ -22,6 +23,7 @@ public static class DependencyInjection
 
             services.AddScoped<ProductSeeder>();
             services.AddScoped<CategorySeeder>();
+            services.AddScoped<RoleSeeder>();
 
             services
                 .AddIdentityCore<ApplicationUser>(options =>
@@ -42,10 +44,13 @@ public static class DependencyInjection
                 .AddDefaultTokenProviders();
 
             services.AddScoped<IIdentityService, IdentityService>();
+            services.AddScoped<ICurrentUserService, CurrentUserService>();
+            services.AddScoped<IPermissionService, PermissionService>();
 
             services.AddAuthentication(defaultScheme: IdentityConstants.ApplicationScheme)
                 .AddIdentityCookies();
                 
+            services.AddHttpContextAccessor();
 
             return services;
         }
@@ -65,6 +70,9 @@ public static class DependencyInjection
 
             var productSeeder = scope.ServiceProvider.GetRequiredService<ProductSeeder>();
             await productSeeder.SeedProductsAsync();
+
+            var roleSeeder = scope.ServiceProvider.GetRequiredService<RoleSeeder>();
+            await roleSeeder.SeedRolesAsync();
         }
     }
 }

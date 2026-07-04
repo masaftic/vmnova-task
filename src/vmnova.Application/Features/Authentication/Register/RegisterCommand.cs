@@ -10,7 +10,7 @@ public record RegisterCommand(
     string Password) : IRequest<Result>;
 
 
-public enum UserRoleType // TODO: move this to a default location where permission service will populate based on the role i think
+public enum UserRoleType
 {
     Admin,
     InventoryManager,

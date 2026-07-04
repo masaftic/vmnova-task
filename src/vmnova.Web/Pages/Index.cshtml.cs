@@ -1,12 +1,17 @@
-using Microsoft.AspNetCore.Mvc;
+using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using vmnova.Application.Features.Products.GetAll;
 
 namespace vmnova.Web.Pages;
 
-public class IndexModel : PageModel
+[Authorize]
+public class IndexModel(ISender sender) : PageModel
 {
-    public void OnGet()
-    {
+    public List<ProductDto> Products { get; private set; } = [];
 
+    public async Task OnGetAsync()
+    {
+        Products = await sender.Send(new GetAllProductsQuery());
     }
 }
